@@ -15,6 +15,8 @@ async function fetchFrom(url,opt){
 }
 
 // Quote Segment || Self explanatory
+let quoteSect = document.getElementById("quote");
+let author = document.getElementById("author");
 const quoteAuth = {
 	method: 'GET',
 	headers: {
@@ -25,7 +27,8 @@ const quoteAuth = {
 async function quoteFunc(){
     url = `https://motivational-quotes-quotable-api.p.rapidapi.com/motivational_quotes`;
     let data = await fetchFrom(url, quoteAuth);
-    console.log(data);
+    quoteSect.innerText = data.quote;
+    author.innerText = data.author;
 }
 quoteFunc();
 
