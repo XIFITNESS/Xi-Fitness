@@ -18,12 +18,12 @@ async function fetchFrom(url,opt){
 const quoteAuth = {
 	method: 'GET',
 	headers: {
-		'X-RapidAPI-Key': 'b7033af962msh5e6aefcc11f4288p181037jsn8d2e49ec14db',
+		'X-RapidAPI-Key': `${quoteKey}`,
 		'X-RapidAPI-Host': 'motivational-quotes-quotable-api.p.rapidapi.com'
 	}
 };
 async function quoteFunc(){
-    url = `https://motivational-quotes-quotable-api.p.rapidapi.com/motivational_quotes?api-key=${quoteKey}`;
+    url = `https://motivational-quotes-quotable-api.p.rapidapi.com/motivational_quotes`;
     let data = await fetchFrom(url, quoteAuth);
     console.log(data);
 }
@@ -39,12 +39,12 @@ const exerciseAuth = {
 	}
 };
 
-async function exercises(){
+async function exerciseFunc(){
     url = 'https://calories-burned-by-api-ninjas.p.rapidapi.com/v1/caloriesburned?activity=skiing';
     let data = await fetchFrom(url, exerciseAuth);
     console.log(data);
 }
-exercises();
+exerciseFunc();
 
 // Searched Food Fetch
 const foodAuth = {
@@ -55,24 +55,6 @@ const foodAuth = {
     }
 }
 
-<<<<<<< HEAD
-const foodApi = 'https://trackapi.nutritionix.com/v2/search/instant?query="';
-let searchedFood = "chicken"; // Based off of the user input from form.
-
-fetch(`${foodApi}${searchedFood}`, foodAuth)
-    
-
-function fetchFoodData(searchedFood) {
-    // while (!searchedFood) {
-    //   await new Promise(resolve => setTimeout(resolve, 100));
-    // }
-     fetch(`${foodApi}${searchedFood}`, foodAuth)
-    .then((res) => res.json())
-    .then((data) => console.log(data))
-}
-// console.log(!searchedFood)
-fetchFoodData(searchedFood)
-=======
 let searchedFood; // Based off of the user input from form.
 async function foodFunc(){
     url = 'https://trackapi.nutritionix.com/v2/search/instant?query="';
@@ -80,4 +62,3 @@ async function foodFunc(){
     console.log(data);
 }
 foodFunc();
->>>>>>> 18184d5d073a7b56cc7ed258d2648b918315a54e
