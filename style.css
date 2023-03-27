@@ -86,13 +86,13 @@ main{
     flex-direction:column;
 }
 
-#food-search-area{
+#food-area{
     background-color: linen;
     height: 100%;
     width: 100%;
 }
 
-#exercise-search-area{
+#exercise-select-area{
     background-color: linen;
     height: 100%;
     width: 100%;
