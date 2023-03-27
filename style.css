@@ -51,7 +51,7 @@ main{
 .side-select{
     padding:20px;
     font-family: Raleway;
-    font-style: normal;
+    font-style: italic;
     line-height: 50px;
     border-bottom: black 1px solid;
     list-style: none;
@@ -82,11 +82,19 @@ main{
 #non-side{
     width: 100%;
     height: 100vh;
+    display: flex;
+    flex-direction:column;
 }
 
 #food-search-area{
-    background-color: grey;
-    height: 95%;
+    background-color: linen;
+    height: 100%;
+    width: 100%;
+}
+
+#exercise-search-area{
+    background-color: linen;
+    height: 100%;
     width: 100%;
 }
 
