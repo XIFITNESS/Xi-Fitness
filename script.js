@@ -14,7 +14,7 @@ async function fetchFrom(url,opt){
     }
 }
 
-// Quote Segment || Self explanitory
+// Quote Segment || Self explanatory
 const quoteAuth = {
 	method: 'GET',
 	headers: {
