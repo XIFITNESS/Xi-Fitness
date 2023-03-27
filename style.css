@@ -89,3 +89,8 @@ main{
     height: 95%;
     width: 100%;
 }
+
+#index-body,.index-main{
+    width: 100%;
+    height: 100vh;
+}
