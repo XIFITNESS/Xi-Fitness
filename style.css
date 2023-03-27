@@ -58,6 +58,27 @@ main{
     width:auto;
 }
 
+.index-main{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.intro-para{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #BA4D3F;
+}
+
+.intro-para h1 {
+    padding-top: 90px;
+}
+
+.button-section button{
+    color: #F8E6DE;
+    background-color: #BA4D3F;
+}
 #non-side{
     width: 100%;
     height: 100vh;
