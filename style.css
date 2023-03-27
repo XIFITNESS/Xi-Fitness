@@ -26,8 +26,27 @@ header{
     padding:20px 0px 20px 0px;
 }
 
+main{
+    display: flex;
+    height: 100%;
+}
+
 .sidebar{
     background-color: #BA4D3F;
     color:white;
-    height: ;
+    height: 100%;
+}
+
+#sidebar-selections{
+    width:auto;
+}
+
+.side-select{
+    padding:20px;
+    font-family: Raleway;
+    font-style: normal;
+    line-height: 50px;
+    border-bottom: black 1px solid;
+    list-style: none;
+    width:auto;
 }
