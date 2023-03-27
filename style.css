@@ -61,10 +61,12 @@ main{
 #non-side{
     width: 100%;
     height: 100vh;
+    display: flex;
+    flex-direction:column;
 }
 
 #food-search-area{
-    background-color: grey;
-    height: 95%;
+    background-color: linen;
+    height: 100%;
     width: 100%;
 }
