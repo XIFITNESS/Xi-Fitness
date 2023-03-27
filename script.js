@@ -27,7 +27,7 @@ const exerciseAuth = {
 		'X-RapidAPI-Host': 'calories-burned-by-api-ninjas.p.rapidapi.com'
 	}
 };
-const exerciseApi = 'https://calories-burned-by-api-ninjas.p.rapidapi.com/v1/caloriesburned?activity='
+const exerciseApi = 'https://calories-burned-by-api-ninjas.p.rapidapi.com/v1/caloriesburned?activity=skiing'
 
 fetch(`${exerciseApi}${exercise}`, exerciseAuth)
 	.then(response => response.json())
