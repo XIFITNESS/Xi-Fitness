@@ -51,11 +51,18 @@ main{
 .side-select{
     padding:20px;
     font-family: Raleway;
-    font-style: italic;
+    font-style: normal;
+    font-size: 20px;
     line-height: 50px;
     border-bottom: black 1px solid;
     list-style: none;
     width:auto;
+    text-align: center;
+}
+
+.side-link{
+    color: linen;
+    text-decoration: none;
 }
 
 .index-main{
@@ -75,16 +82,9 @@ main{
     padding-top: 90px;
 }
 
-.button-section{
-    display: flex;
-}
 .button-section button{
     color: #F8E6DE;
     background-color: #BA4D3F;
-    border-radius: 12px;
-    padding-left:1%;
-    padding-right:1%;
-    margin: 4%;
 }
 #non-side{
     width: 100%;
