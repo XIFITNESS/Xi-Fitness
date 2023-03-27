@@ -1,3 +1,4 @@
+let exerciseKeys = KEY.EXCERCISE;
 async function fetchFrom(url,opt){
     try{
         let data = await await fetch(url,opt);
@@ -12,7 +13,7 @@ let exercise = "skiing" //This was an example, the real var will depend on user 
 const exerciseAuth = {
 	method: 'GET',
 	headers: {
-		'X-RapidAPI-Key': 'b7033af962msh5e6aefcc11f4288p181037jsn8d2e49ec14db',
+		'X-RapidAPI-Key': `${exerciseKeys}`,
 		'X-RapidAPI-Host': 'calories-burned-by-api-ninjas.p.rapidapi.com'
 	}
 };

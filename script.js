@@ -1,17 +1,18 @@
 
-
+let quoteKey = KEY.QUOTES;
+let exerciseKey = KEY.EXCERCISE;
+let foodKey = KEY.FOOD;
 
 // Quote Segment || Self explanitory
 const quoteAuth = {
 	method: 'GET',
 	headers: {
-		'X-RapidAPI-Key': 'b7033af962msh5e6aefcc11f4288p181037jsn8d2e49ec14db',
+		'X-RapidAPI-Key': `${quoteKey}`,
 		'X-RapidAPI-Host': 'motivational-quotes-quotable-api.p.rapidapi.com'
 	}
 };
-const quoteApi = 'https://motivational-quotes-quotable-api.p.rapidapi.com/motivational_quotes'
-
-fetch( `${quoteApi}` , quoteAuth )
+const quoteApi = `https://motivational-quotes-quotable-api.p.rapidapi.com/motivational_quotes?api-key=${quoteKey}`;
+fetch(`${quoteApi}`,quoteAuth)
 	.then(response => response.json())
 	.then(response => console.log(response))
 	.catch(err => console.error(err));
@@ -23,7 +24,7 @@ fetch( `${quoteApi}` , quoteAuth )
 // const exerciseAuth = {
 // 	method: 'GET',
 // 	headers: {
-// 		'X-RapidAPI-Key': 'b7033af962msh5e6aefcc11f4288p181037jsn8d2e49ec14db',
+// 		'X-RapidAPI-Key': `${exerciseKey}`,
 // 		'X-RapidAPI-Host': 'calories-burned-by-api-ninjas.p.rapidapi.com'
 // 	}
 // };
@@ -58,7 +59,7 @@ const foodAuth = {
     method: "GET",
     headers: {
         "x-app-id": "97dd140d",
-        "x-app-key": "ee8f1a6cffe0e00b1aa68857c823143e"
+        "x-app-key": `${foodKey}`
     }
 }
 
