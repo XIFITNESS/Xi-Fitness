@@ -1,5 +1,18 @@
 
+let quoteKey = KEY.QUOTES;
+let exerciseKey = KEY.EXCERCISE;
+let foodKey = KEY.FOOD;
 
+//fetch function
+async function fetchFrom(url,opt){
+    try{
+        let data = await fetch(url,opt);
+        return await data.json(); 
+    } catch(error){
+        console.log(error);
+        return null;
+    }
+}
 
 // Quote Segment || Self explanatory
 const quoteAuth = {
@@ -9,59 +22,40 @@ const quoteAuth = {
 		'X-RapidAPI-Host': 'motivational-quotes-quotable-api.p.rapidapi.com'
 	}
 };
-const quoteApi = 'https://motivational-quotes-quotable-api.p.rapidapi.com/motivational_quotes'
+async function quoteFunc(){
+    url = `https://motivational-quotes-quotable-api.p.rapidapi.com/motivational_quotes?api-key=${quoteKey}`;
+    let data = await fetchFrom(url, quoteAuth);
+    console.log(data);
+}
+quoteFunc();
 
-fetch( `${quoteApi}` , quoteAuth )
-	.then(response => response.json())
-	.then(response => console.log(response))
-	.catch(err => console.error(err));
-
-
-
-// Exercise Fetch
+//Exercise Fetch
 let exercise //This was an example, the real var will depend on user input//= "volleyball";
 const exerciseAuth = {
 	method: 'GET',
 	headers: {
-		'X-RapidAPI-Key': 'b7033af962msh5e6aefcc11f4288p181037jsn8d2e49ec14db',
+		'X-RapidAPI-Key': `${exerciseKey}`,
 		'X-RapidAPI-Host': 'calories-burned-by-api-ninjas.p.rapidapi.com'
 	}
 };
-const exerciseApi = 'https://calories-burned-by-api-ninjas.p.rapidapi.com/v1/caloriesburned?activity=skiing'
 
-fetch(`${exerciseApi}${exercise}`, exerciseAuth)
-	.then(response => response.json())
-	.then(response => console.log(response))
-	.catch(err => console.error(err));
-
-/*
-    Will return sum like this. We can use this to divide the calorie/h count by duration (for calories per minute) and then multiply it by total minutes logged by user.
-    [
-        {
-            "name": "Playing volleyball",
-            "calories_per_hour": 217,
-            "duration_minutes": 60,
-            "total_calories": 217
-        },
-        {
-            "name": "Water volleyball",
-            "calories_per_hour": 217,
-            "duration_minutes": 60,
-            "total_calories": 217
-        }
-    ]
-*/
-
+async function exercises(){
+    url = 'https://calories-burned-by-api-ninjas.p.rapidapi.com/v1/caloriesburned?activity=skiing';
+    let data = await fetchFrom(url, exerciseAuth);
+    console.log(data);
+}
+exercises();
 
 // Searched Food Fetch
 const foodAuth = {
     method: "GET",
     headers: {
         "x-app-id": "97dd140d",
-        "x-app-key": "ee8f1a6cffe0e00b1aa68857c823143e"
+        "x-app-key": `${foodKey}`
     }
 }
 
+<<<<<<< HEAD
 const foodApi = 'https://trackapi.nutritionix.com/v2/search/instant?query="';
 let searchedFood = "chicken"; // Based off of the user input from form.
 
@@ -78,3 +72,12 @@ function fetchFoodData(searchedFood) {
 }
 // console.log(!searchedFood)
 fetchFoodData(searchedFood)
+=======
+let searchedFood; // Based off of the user input from form.
+async function foodFunc(){
+    url = 'https://trackapi.nutritionix.com/v2/search/instant?query="';
+    let data = await fetchFrom(url, foodAuth);
+    console.log(data);
+}
+foodFunc();
+>>>>>>> 18184d5d073a7b56cc7ed258d2648b918315a54e
