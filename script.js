@@ -1,7 +1,7 @@
 
 
 
-// Quote Segment || Self explanitory
+// Quote Segment || Self explanatory
 const quoteAuth = {
 	method: 'GET',
 	headers: {
@@ -63,8 +63,18 @@ const foodAuth = {
 }
 
 const foodApi = 'https://trackapi.nutritionix.com/v2/search/instant?query="';
-let searchedFood; // Based off of the user input from form.
+let searchedFood = "chicken"; // Based off of the user input from form.
 
 fetch(`${foodApi}${searchedFood}`, foodAuth)
+    
+
+function fetchFoodData(searchedFood) {
+    // while (!searchedFood) {
+    //   await new Promise(resolve => setTimeout(resolve, 100));
+    // }
+     fetch(`${foodApi}${searchedFood}`, foodAuth)
     .then((res) => res.json())
     .then((data) => console.log(data))
+}
+// console.log(!searchedFood)
+fetchFoodData(searchedFood)
