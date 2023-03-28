@@ -44,17 +44,16 @@ const exerciseAuth = {
 };
 
 async function exerciseFunc(exercise){
-    url = `https://calories-burned-by-api-ninjas.p.rapidapi.com/v1/caloriesburned?activity=skiing`;
+    url = `https://calories-burned-by-api-ninjas.p.rapidapi.com/v1/caloriesburned?activity=${exercise}`;
     let data = await fetchFrom(url, exerciseAuth);
-    console.log(data[0]["name"]);
-    document.querySelector("#search-form").addEventListener("submit", (e)=>{
-        e.preventDefault();
-        let exerciseSearch = e.target[0].value;
-        exerciseSearchOutput.innerText = data[0]["name"];
-    })
+    exerciseSearchOutput.innerText = data[0]["name"];
+    //console.log(data[0]["name"]);
 }
-exerciseFunc();
-
+document.querySelector("#search-form").addEventListener("submit", (e)=>{
+    e.preventDefault();
+    exercise = e.target[0].value;
+    exerciseFunc(exercise);
+})
 // Searched Food Fetch
 const foodAuth = {
     method: "GET",
