@@ -1,9 +1,28 @@
 let quoteKey = KEY.QUOTES;
 let exerciseKey = KEY.EXCERCISE;
 let foodKey = KEY.FOOD;
+let caloriesBurned = 0;
+let caloriesEaten = 0;
 
 //DOM Variables
 let exerciseSearchOutput = document.getElementById("exercises")
+// let cardDiv = document.createElement("div");
+// cardDiv.setAttribute("class","card");
+// cardDiv.style.width = "18rem";
+// let cardDivBody = document.createElement("div");
+// cardDivBody.setAttribute("class","card-body");
+// let cardName = document.createElement("h5");
+// cardName.setAttribute("class","card-title");
+// cardName.innerText = "yo"
+// let cardLink = document.createElement("a");
+// cardLink.innerText = "hi";
+// cardLink.href = "#";
+// cardLink.setAttribute("class","card-link")
+// cardDivBody.append(cardName);
+// cardDivBody.append(cardLink);
+// cardDiv.append(cardDivBody);
+// exerciseSearchOutput.append(cardDiv);
+
 
 //fetch function
 async function fetchFrom(url,opt){
@@ -45,14 +64,41 @@ const exerciseAuth = {
 
 async function exerciseFunc(exercise){
     url = `https://calories-burned-by-api-ninjas.p.rapidapi.com/v1/caloriesburned?activity=${exercise}`;
+    //&duration=${duration}
     let data = await fetchFrom(url, exerciseAuth);
-    exerciseSearchOutput.innerText = data[0]["name"];
+    data.forEach(exercise => {
+        // let li = document.createElement("li");
+        // li.innerText = exercise["name"];
+        // exerciseSearchOutput.append(li);
+        let cardDiv = document.createElement("div");
+        cardDiv.setAttribute("class","card");
+        cardDiv.style.width = "18rem";
+        let cardDivBody = document.createElement("div");
+        cardDivBody.setAttribute("class","card-body");
+        let cardName = document.createElement("h5");
+        cardName.setAttribute("class","card-title");
+        cardName.innerText = data[0]["name"];
+        let cardLink = document.createElement("a");
+        cardLink.innerText = "hi";
+        cardLink.href = "#";
+        cardLink.setAttribute("class","card-link")
+        cardDivBody.append(cardName);
+        cardDivBody.append(cardLink);
+        cardDiv.append(cardDivBody);
+        exerciseSearchOutput.append(cardDiv);
+    })
+   // exerciseSearchOutput.innerText = data[0]["name"];
     //console.log(data[0]["name"]);
 }
 document.querySelector("#search-form").addEventListener("submit", (e)=>{
     e.preventDefault();
     exercise = e.target[0].value;
+    //duration = 
     exerciseFunc(exercise);
+    exerciseSearchOutput.innerText = "";
+    // while (exerciseSearchOutput.firstChild) {
+    //     exerciseSearchOutput.removeChild(exerciseSearchOutput.firstChild);
+    //   }
 })
 // Searched Food Fetch
 const foodAuth = {
