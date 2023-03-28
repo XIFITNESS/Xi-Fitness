@@ -57,17 +57,24 @@ const foodAuth = {
     }
 }
 
-let searchedFood; // Based off of the user input from form.
+let searchedFood = 'chicken'; // Based off of the user input from form.
 async function foodFunc(food){
-    url = `https://trackapi.nutritionix.com/v2/search/instant?query=" ${food}`;
+    // url = `https://trackapi.nutritionix.com/v2/search/instant?query=" ${food}&detailed=true`;
     let data = await fetchFrom(url, foodAuth);
     console.log(data);
-    
+    /* for( foodItem in data.branded){
+        let newResult = document.createElement('li')
+        newResult.innerText = foodItem.food_name
+        
+    } */ 
 }
-foodFunc(searchedFood);
 
 
 
 //////////////////////////////////////////////////////////////
 
 
+const foodList = document.querySelector('#food-result-list')
+const li = document.createElement('li')
+
+foodFunc(searchedFood);
