@@ -1,4 +1,3 @@
-
 let quoteKey = KEY.QUOTES;
 let exerciseKey = KEY.EXCERCISE;
 let foodKey = KEY.FOOD;
@@ -33,7 +32,7 @@ async function quoteFunc(){
     quoteSect.innerText = data.quote;
     author.innerText = data.author;
 }
-quoteFunc();
+// quoteFunc();
 
 //Exercise Fetch
 const exerciseAuth = {
@@ -66,10 +65,16 @@ const foodAuth = {
 }
 
 let searchedFood; // Based off of the user input from form.
-async function foodFunc(){
-    url = 'https://trackapi.nutritionix.com/v2/search/instant?query="';
+async function foodFunc(food){
+    url = `https://trackapi.nutritionix.com/v2/search/instant?query=" ${food}`;
     let data = await fetchFrom(url, foodAuth);
     console.log(data);
+    
 }
-foodFunc();
+foodFunc(searchedFood);
+
+
+
+//////////////////////////////////////////////////////////////
+
 

@@ -119,6 +119,19 @@ main{
     
 }
 
+#food-result-list{
+    width:90%;
+    height: auto;
+    padding:0px;
+}
+
+.food-result{
+    background-color: whitesmoke;
+    width: 100%;
+    list-style: inside;
+    color: white;
+}
+
 .label{
     color: linen;
     padding: 10px;
