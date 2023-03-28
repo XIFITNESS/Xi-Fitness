@@ -3,6 +3,9 @@ let quoteKey = KEY.QUOTES;
 let exerciseKey = KEY.EXCERCISE;
 let foodKey = KEY.FOOD;
 
+//DOM Variables
+let exerciseSearchOutput = document.getElementById("exercises")
+
 //fetch function
 async function fetchFrom(url,opt){
     try{
@@ -33,7 +36,6 @@ async function quoteFunc(){
 quoteFunc();
 
 //Exercise Fetch
-let exercise //This was an example, the real var will depend on user input//= "volleyball";
 const exerciseAuth = {
 	method: 'GET',
 	headers: {
@@ -42,10 +44,15 @@ const exerciseAuth = {
 	}
 };
 
-async function exerciseFunc(){
-    url = 'https://calories-burned-by-api-ninjas.p.rapidapi.com/v1/caloriesburned?activity=skiing';
+async function exerciseFunc(exercise){
+    url = `https://calories-burned-by-api-ninjas.p.rapidapi.com/v1/caloriesburned?activity=skiing`;
     let data = await fetchFrom(url, exerciseAuth);
-    console.log(data);
+    console.log(data[0]["name"]);
+    document.querySelector("#search-form").addEventListener("submit", (e)=>{
+        e.preventDefault();
+        let exerciseSearch = e.target[0].value;
+        exerciseSearchOutput.innerText = data[0]["name"];
+    })
 }
 exerciseFunc();
 
@@ -65,3 +72,4 @@ async function foodFunc(){
     console.log(data);
 }
 foodFunc();
+
