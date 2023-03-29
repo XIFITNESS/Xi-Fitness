@@ -17,6 +17,9 @@ async function fetchFrom(url,opt){
     }
 }
 
+
+/////////////////////////// QUOTE AREA \\\\\\\\\\\\\\\\\\\\\\\\\\\
+
 // Quote Segment || Self explanatory
 let quoteSect = document.getElementById("quote");
 let author = document.getElementById("author");
@@ -35,6 +38,9 @@ async function quoteFunc(){
 }
 // quoteFunc();
 
+
+/////////////////////////// EXERCISE AREA \\\\\\\\\\\\\\\\\\\\\\\\\\\
+
 //Exercise Fetch
 const exerciseAuth = {
 	method: 'GET',
@@ -50,11 +56,16 @@ async function exerciseFunc(exercise){
     exerciseSearchOutput.innerText = data[0]["name"];
     //console.log(data[0]["name"]);
 }
-// document.querySelector("#search-form").addEventListener("submit", (e)=>{
-//     e.preventDefault();
-//     exercise = e.target[0].value;
-//     exerciseFunc(exercise);
-// })
+
+document.querySelector("#search-form").addEventListener("submit", (e)=>{
+    e.preventDefault();
+    exercise = e.target[0].value;
+    exerciseFunc(exercise);
+})
+
+
+/////////////////////////// FOOD AREA \\\\\\\\\\\\\\\\\\\\\\\\\\\
+
 
 // Searched Food Fetch
 const foodAuth = {
@@ -84,8 +95,6 @@ async function foodFunc(food){
         
       } 
 }
-
-
 
 document.querySelector('#food-form').addEventListener("submit", (e)=>{
     document.querySelector('#food-result-list')
