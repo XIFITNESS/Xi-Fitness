@@ -121,7 +121,6 @@ let searchedFood; // Based off of the user input from form.
 async function foodFunc(food){
     url = `https://trackapi.nutritionix.com/v2/search/instant?query=" ${food}&detailed=true`;
     let data = await fetchFrom(url, foodAuth);
-    console.log(data);
     for (const foodItem of data.branded) {
         const newLi = document.createElement('li');
         const newImg = document.createElement('img');
@@ -143,7 +142,6 @@ document.querySelector('#food-form').addEventListener("submit", (e)=>{
     if(document.querySelector('#food-result-list').hasChildNodes()){
         document.querySelector('#food-result-list').innerText = ''
     }
-    console.log("does this work??")
     searchedFood = e.target[0].value;
     foodFunc(searchedFood);
     document.querySelector('#food-search-textbox').value = ''
