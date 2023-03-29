@@ -105,6 +105,16 @@ main{
     overflow: hidden ;
 }
 
+#exercise-area{
+    background-color: linen;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden ;
+}
+
 ::-webkit-scrollbar{
     display: none;
 }
