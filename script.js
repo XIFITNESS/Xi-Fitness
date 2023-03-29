@@ -111,7 +111,8 @@ async function exerciseFunc(exercise,duration){
         cardDivBody.append(cardButton);
         cardButton.addEventListener("click",(e)=>{
             console.log("yerrrrr");
-            console.log(exercise["total_calories"]);
+            caloriesBurned += exercise["total_calories"];
+            console.log(caloriesBurned);
         })
 
 

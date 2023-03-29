@@ -134,6 +134,8 @@ main{
 
 #exercises{
 display: flex;
+flex-direction: column;
+overflow: scroll;
 }
 
 #food-result-list{
