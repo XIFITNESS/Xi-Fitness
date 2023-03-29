@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>XIFITNESS</title>
+  
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/x-icon" href="mainicon.png">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -18,25 +19,106 @@
   <script type='text/javascript' src='config.js'></script>
 </head>
 
-<body id="index-body">
-    <header>
+<body scroll="no" style="overflow: hidden">
 
-        <div class="title-header"><h1>XIFITNESS</h1></div>
-        
-    </header>
+  <section id="index-page">
+      <header>
 
-    <main class="index-main">
-        <section class="intro-para">
-          <h1>Welcome to XIFitness</h1>
-          <h2>Where your fitness goals are there for the taking. You just have to work for it! </h2>
-          <h2 id="quote">Quote Loading...</h2>
-          <span id="author">yo</span>
-          <p>Please select below what you would like to do today</p>
-        </section>
-        <section class="button-section">
-          <button onclick = "location.href = './food.html'">Food Tracker</button>
-          <button onclick = "location.href = './exercise.html'">Exercise Tracker</button>
-        </section>
-        <but
+          <div class="title-header"><h1>XIFITNESS</h1></div>
+          
+      </header>
+
+    <main id="index-main">
+          <section class="intro-para">
+            <h1>Welcome to XIFitness</h1>
+            <h2>Where your fitness goals are there for the taking. You just have to work for it! </h2>
+            <h2 id="quote">Quote Loading...</h2>
+            <span id="author">yo</span>
+            <p>Please select below what you would like to do today</p>
+          </section>
+
+          <section class="button-section">
+            <button><a class="index-button" href="#food-page">Food Tracker</a></button>
+            <button><a class="index-button" href="#exercise-page">Exercise Tracker</a></button>
+          </section>
     </main>
+    
+  </section>
+
+<!-- //////////////////////////////////////////////////// -->
+
+  <section id="food-page">
+    <section class="sidebar">
+      <section id="app-name">
+        <a id="title" >
+          <h1>XIFITNESS</h1>
+        </a>
+      </section>
+
+      <ul id="sidebar-selections">
+        <li class="side-select"><a class="side-link" href="#food-page">Food Tracker</a></li>
+        <li class="side-select"><a class="side-link" href="#exercise-page">Exercise Tracker</a></li>
+        <li class="side-select"><a class="side-link" href="#index-page">Meditation</a></li>
+      </ul>
+    </section>
+    
+    <div id="non-side">
+      <header class="section-header"><h1>FOOD TRACKER</h1></header>
+      <div id="food-area">
+
+        <section id="food-search-area">
+          <p class='label'> Search a Food You Ate!" </p>
+
+          <form action="input" id="food-form">
+            <input type="text" id="food-search-textbox" placeholder="Search for your Food">
+
+            <button type="submit" id="food-search-submit">Search!</button>
+          </form>
+
+          <ul id="food-result-list"></ul>
+        </section>
+
+      </div>
+
+    </div>
+    
+  </section>
+
+<!-- //////////////////////////////////////////////////////////////// -->
+  
+  <section id="exercise-page">
+      
+      <section class="sidebar">
+      <section id="app-name">
+      <a id="title" >
+          <h1>XIFITNESS</h1>
+          </a>
+      </section>
+
+      <ul id="sidebar-selections">
+        <li class="side-select"><a class="side-link" href="#food-page">Food Tracker</a></li>
+        <li class="side-select"><a class="side-link" href="#exercise-page">Exercise Tracker</a></li>
+        <li class="side-select"><a class="side-link" href="#index-page">Meditation</a></li>
+      </ul>
+      </section>
+
+      <div id="non-side">
+        <header class="section-header"><h1>EXERCISE TRACKER</h1></header>
+        <div id="exercise-area">
+          <section id="exercise-search-area">
+            <p class='label'> Search the Exercise you did!" </p>
+            <form id="search-form">
+                <input type="text" name="searchEx" placeholder="Enter exercise here">
+                <input type="number" name="durationTime" placeholder="Enter minutes exercised for">
+                <button type="submit">Search</button>
+            </form>
+            <article id="exercises">
+            </article>
+        </section>
+        </div>
+
+      </div>
+      
+  </section>
 </body>
+</html>
