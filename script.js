@@ -62,11 +62,16 @@ const exerciseAuth = {
 	}
 };
 
-async function exerciseFunc(exercise){
-    url = `https://calories-burned-by-api-ninjas.p.rapidapi.com/v1/caloriesburned?activity=${exercise}`;
-    //&duration=${duration}
+async function exerciseFunc(exercise,duration){
+    if(duration){
+        url = `https://calories-burned-by-api-ninjas.p.rapidapi.com/v1/caloriesburned?activity=${exercise}&duration=${duration}`;
+    } else{
+        url = `https://calories-burned-by-api-ninjas.p.rapidapi.com/v1/caloriesburned?activity=${exercise}`;
+    }
+    
+    //
     let data = await fetchFrom(url, exerciseAuth);
-    data.forEach(exercise => {
+        data.forEach(exercise => {
         // let li = document.createElement("li");
         // li.innerText = exercise["name"];
         // exerciseSearchOutput.append(li);
@@ -78,23 +83,45 @@ async function exerciseFunc(exercise){
         let cardName = document.createElement("h5");
         cardName.setAttribute("class","card-title");
         cardName.innerText = data[0]["name"];
-        let cardLink = document.createElement("a");
-        cardLink.innerText = "hi";
-        cardLink.href = "#";
-        cardLink.setAttribute("class","card-link")
+        //form
+        // let cardForm = document.createElement("form");
+        // cardForm.setAttribute("id","duration-form");
+        // let cardInput = document.createElement("input");
+        // cardInput.setAttribute("type","number");
+        // cardInput.setAttribute("name","durationTime");
+        // cardInput.setAttribute("placeholder","insert minutes worked out");
+        // let cardButton = document.createElement("button");
+        // cardButton.setAttribute("type","submit");
+        // cardButton.innerText = "Submit";
+        // cardForm.append(cardInput);
+        // cardForm.append(cardButton);
         cardDivBody.append(cardName);
-        cardDivBody.append(cardLink);
+        // cardDivBody.append(cardForm);
         cardDiv.append(cardDivBody);
         exerciseSearchOutput.append(cardDiv);
+        console.log(data[0]["total_calories"])
+
+        // cardForm.addEventListener("submit",(f)=>{
+        //     f.preventDefault();
+        //     duration = f.target[0].value;
+        //     console.log(duration);
+        //     console.log(data);
+        //     durationFunc();
+            // let urls = `https://calories-burned-by-api-ninjas.p.rapidapi.com/v1/caloriesburned?activity=${exercise}`
+            // fetch(urls, exerciseAuth).then(response => response.json())
+            // .then(data => console.log(data))
+            // .catch(error => console.log(error))
+        // })
     })
+}
    // exerciseSearchOutput.innerText = data[0]["name"];
     //console.log(data[0]["name"]);
-}
+    let exercises = "";
 document.querySelector("#search-form").addEventListener("submit", (e)=>{
     e.preventDefault();
-    exercise = e.target[0].value;
-    //duration = 
-    exerciseFunc(exercise);
+    exercises = e.target[0].value;
+    let duration = e.target[1].value;
+    exerciseFunc(exercises,duration);
     exerciseSearchOutput.innerText = "";
     // while (exerciseSearchOutput.firstChild) {
     //     exerciseSearchOutput.removeChild(exerciseSearchOutput.firstChild);
