@@ -1,10 +1,12 @@
 let quoteKey = KEY.QUOTES;
 let exerciseKey = KEY.EXCERCISE;
 let foodKey = KEY.FOOD;
+let totalCalories = 0;
+let calories = 1400;
+let caloriesLeft = 0;
 
 //DOM Variables
 let exerciseSearchOutput = document.getElementById("exercises")
-
 
 //fetch function
 async function fetchFrom(url,opt){
@@ -16,7 +18,6 @@ async function fetchFrom(url,opt){
         return null;
     }
 }
-
 
 /////////////////////////// QUOTE AREA \\\\\\\\\\\\\\\\\\\\\\\\\\\
 
@@ -40,26 +41,64 @@ async function quoteFunc(){
 
 
 /////////////////////////// EXERCISE AREA \\\\\\\\\\\\\\\\\\\\\\\\\\\
-
-//Exercise Fetch
 const exerciseAuth = {
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': `${exerciseKey}`,
-		'X-RapidAPI-Host': 'calories-burned-by-api-ninjas.p.rapidapi.com'
-	}
+    method: 'GET',
+    headers: {
+        'X-RapidAPI-Key': `${exerciseKey}`,
+        'X-RapidAPI-Host': 'calories-burned-by-api-ninjas.p.rapidapi.com'
+    }
 };
-
-async function exerciseFunc(exercise){
-    url = `https://calories-burned-by-api-ninjas.p.rapidapi.com/v1/caloriesburned?activity=${exercise}`;
+async function exerciseFunc(exercise,duration){
+    if(duration){
+        url = `https://calories-burned-by-api-ninjas.p.rapidapi.com/v1/caloriesburned?activity=${exercise}&duration=${duration}`;
+    } else{
+        url = `https://calories-burned-by-api-ninjas.p.rapidapi.com/v1/caloriesburned?activity=${exercise}`;
+    }
+    
+    //
     let data = await fetchFrom(url, exerciseAuth);
-    exerciseSearchOutput.innerText = data[0]["name"];
-    //console.log(data[0]["name"]);
+        data.forEach(exercise => {
+        let cardDiv = document.createElement("div");
+        cardDiv.setAttribute("class","card");
+        cardDiv.style.width = "18rem";
+        let cardDivBody = document.createElement("div");
+        cardDivBody.setAttribute("class","card-body");
+        let cardName = document.createElement("h5");
+        cardName.setAttribute("class","card-title");
+        cardName.innerText = exercise["name"];
+        let cardButton = document.createElement("button");
+        cardButton.innerText = "Select";
+        let h6 = document.createElement("h6");
+        h6.setAttribute("class","card-subtitle");
+        let cardP = document.createElement("p");
+        let cardP2 = document.createElement("p");
+        `Calories burned per hour: ${[0]["calories_per_hour"]}`
+        h6.innerText = `Calories burned per hour: ${exercise["calories_per_hour"]}`;
+        cardP.innerText = `Total calories burned: ${exercise["total_calories"]}`;
+        cardP2.innerText = `Duration minutes: ${exercise["duration_minutes"]}`;
+        cardDivBody.append(cardName);
+        cardDivBody.append(h6);
+        cardDivBody.append(cardP);
+        cardDivBody.append(cardP2);
+        cardDivBody.append(cardButton);
+        cardButton.addEventListener("click",(e)=>{
+            totalCalories = totalCalories - exercise["total_calories"];
+            console.log(totalCalories);
+        })
+
+        cardDiv.append(cardDivBody);
+        exerciseSearchOutput.append(cardDiv);
+
+    })
+}
+
     let exercises = "";
-    document.querySelector("#search-form").addEventListener("submit", (e)=>{
+document.querySelector("#search-form").addEventListener("submit", (e)=>{
     e.preventDefault();
-    exercise = e.target[0].value;
-    exerciseFunc(exercise);
+    exercises = e.target[0].value;
+    let duration = e.target[1].value;
+    exerciseFunc(exercises,duration);
+    exerciseSearchOutput.innerText = "";
 })
 
 
@@ -92,7 +131,7 @@ async function foodFunc(food){
         newLi.append(newLink,newImg)
         foodList.appendChild(newLi);
         
-      } 
+} 
 }
 
 document.querySelector('#food-form').addEventListener("submit", (e)=>{
@@ -107,10 +146,8 @@ document.querySelector('#food-form').addEventListener("submit", (e)=>{
     document.querySelector('#food-search-textbox').value = ''
 })
 
-
-
 //////////////////////////////////////////////////////////////
 
 
-const foodList = document.querySelector('#food-result-list')
-const li = document.createElement('li')
+// const foodList = document.querySelector('#food-result-list')
+// const li = document.createElement('li')
