@@ -166,12 +166,15 @@ link.addEventListener("click",(e)=>{
 })
 document.querySelector('#searchEx').addEventListener("click",(e)=>{
     document.querySelector('#searchEx').value = '';
+    //document.querySelector('#searchEx').placeholder = '';
 })
 document.querySelector('#durationTime').addEventListener("click",(e)=>{
     document.querySelector('#durationTime').value = '';
+    //document.querySelector('#durationTime').placeholder = '';
 })
 document.querySelector('#food-search-textbox').addEventListener("click", (e)=>{
     document.querySelector('#food-search-textbox').value = '';
+    //document.querySelector('#food-search-textbox').placeholder = '';
 })
 
 //////////////////////////////////////////////////////////////
