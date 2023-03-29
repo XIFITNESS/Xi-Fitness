@@ -121,19 +121,28 @@ let searchedFood; // Based off of the user input from form.
 async function foodFunc(food){
     url = `https://trackapi.nutritionix.com/v2/search/instant?query=" ${food}&detailed=true`;
     let data = await fetchFrom(url, foodAuth);
+    console.log(data)
     for (const foodItem of data.branded) {
         const newLi = document.createElement('li');
         const newImg = document.createElement('img');
         const newLink = document.createElement('p');
         newLink.innerText = foodItem.food_name;
-        newLink.classList = 'food-result-text'
-        newImg.src = foodItem.photo.thumb
-        newImg.classList = 'food-img'
-        newLi.classList = 'food-result'
-        newLi.append(newLink,newImg)
+        newLink.classList = 'food-result-text';
+        const cardButton = document.createElement("button");
+        cardButton.innerText = "Select";
+        cardButton.value = foodItem.nf_calories
+        // cardButton.value
+        cardButton.addEventListener('click', (e) =>{
+            totalCalories += Number(cardButton.value)
+            document.querySelector('#food-result-list').innerText = ''
+        })
+        newImg.src = foodItem.photo.thumb;
+        newImg.classList = 'food-img';
+        newLi.classList = 'food-result';
+        newLi.append(newLink,cardButton,newImg);
         foodList.appendChild(newLi);
         
-} 
+    } 
 }
 
 document.querySelector('#food-form').addEventListener("submit", (e)=>{
