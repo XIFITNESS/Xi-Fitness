@@ -54,6 +54,7 @@ document.querySelector("#search-form").addEventListener("submit", (e)=>{
     exercise = e.target[0].value;
     exerciseFunc(exercise);
 })
+
 // Searched Food Fetch
 const foodAuth = {
     method: "GET",
@@ -70,7 +71,13 @@ async function foodFunc(food){
     console.log(data);
     
 }
-foodFunc(searchedFood);
+
+document.querySelector('#food-form').addEventListener("submit", (e)=>{
+    e.preventDefault();
+    console.log("does this work??")
+    searchedFood = e.target[0].value;
+    foodFunc(searchedFood);
+})
 
 
 

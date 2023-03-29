@@ -14,7 +14,7 @@
 
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Raleway" />
   <script defer src="script.js"></script>
-  <script type='text/javascript' src='config.js'></script>
+  <script defer type='text/javascript' src='config.js'></script>
 </head>
 
 <body>
@@ -42,18 +42,16 @@
 
         <section id="food-search-area">
           <p class='label'> Search a Food You Ate!" </p>
-          <form action="input">
-            <input type="text" id="food-search-textbox">
+
+          <form action="input" id="food-form">
+            <input type="text" id="food-search-textbox" placeholder="Search for your Food">
             <!-- need to prevent the page reload on this Enter submission -->
-            <input type="button" id="food-search-submit" value="Search!">
+            <button type="submit" id="food-search-submit">Search!</button>
           </form>
+
           <ul id="food-result-list">
             <li class="food-result"></li>
-            <li class="food-result"></li>
-            <li class="food-result"></li>
-            <li class="food-result"></li>
-            <li class="food-result"></li>
-            <li class="food-result"></li>
+        
 
           </ul>
         </section>
