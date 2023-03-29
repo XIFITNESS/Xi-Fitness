@@ -138,7 +138,7 @@ async function exerciseFunc(exercise,duration){
    // exerciseSearchOutput.innerText = data[0]["name"];
     //console.log(data[0]["name"]);
     let exercises = "";
-document.querySelector("#search-form").addEventListener("submit", (e)=>{
+    document.querySelector("#search-form").addEventListener("submit", (e)=>{
     e.preventDefault();
     exercises = e.target[0].value;
     let duration = e.target[1].value;
