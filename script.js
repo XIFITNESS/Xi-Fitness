@@ -86,7 +86,7 @@ async function foodFunc(food){
 
 document.querySelector('#food-form').addEventListener("submit", (e)=>{
     e.preventDefault();
-    console.log("does this work??")
+    document.querySelector('#food-result-list') = ''
     searchedFood = e.target[0].value;
     foodFunc(searchedFood);
     document.querySelector('#food-search-textbox').innerText = ''
