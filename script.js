@@ -23,7 +23,6 @@ let exerciseSearchOutput = document.getElementById("exercises")
 // cardDiv.append(cardDivBody);
 // exerciseSearchOutput.append(cardDiv);
 
-
 //fetch function
 async function fetchFrom(url,opt){
     try{
@@ -82,7 +81,7 @@ async function exerciseFunc(exercise,duration){
         cardDivBody.setAttribute("class","card-body");
         let cardName = document.createElement("h5");
         cardName.setAttribute("class","card-title");
-        cardName.innerText = data[0]["name"];
+        cardName.innerText = exercise["name"];
         //form
         // let cardForm = document.createElement("form");
         // cardForm.setAttribute("id","duration-form");
@@ -90,16 +89,37 @@ async function exerciseFunc(exercise,duration){
         // cardInput.setAttribute("type","number");
         // cardInput.setAttribute("name","durationTime");
         // cardInput.setAttribute("placeholder","insert minutes worked out");
-        // let cardButton = document.createElement("button");
+        let cardButton = document.createElement("button");
         // cardButton.setAttribute("type","submit");
-        // cardButton.innerText = "Submit";
+        cardButton.innerText = "Select";
         // cardForm.append(cardInput);
-        // cardForm.append(cardButton);
+        //
+    //     <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+    // <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        let h6 = document.createElement("h6");
+        h6.setAttribute("class","card-subtitle");
+        let cardP = document.createElement("p");
+        let cardP2 = document.createElement("p");
+        `Calories burned per hour: ${[0]["calories_per_hour"]}`
+        h6.innerText = `Calories burned per hour: ${exercise["calories_per_hour"]}`;
+        cardP.innerText = `Total calories burned: ${exercise["total_calories"]}`;
+        cardP2.innerText = `Duration minutes: ${exercise["duration_minutes"]}`;
         cardDivBody.append(cardName);
+        cardDivBody.append(h6);
+        cardDivBody.append(cardP);
+        cardDivBody.append(cardP2);
+        cardDivBody.append(cardButton);
+        cardButton.addEventListener("click",(e)=>{
+            console.log("yerrrrr");
+            console.log(exercise["total_calories"]);
+        })
+
+
+        
         // cardDivBody.append(cardForm);
         cardDiv.append(cardDivBody);
         exerciseSearchOutput.append(cardDiv);
-        console.log(data[0]["total_calories"])
+        // console.log(data[0]["total_calories"])
 
         // cardForm.addEventListener("submit",(f)=>{
         //     f.preventDefault();
