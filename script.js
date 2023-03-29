@@ -160,8 +160,18 @@ foodLinks.forEach(link =>{
 exerciseLinks.forEach(link => {
 link.addEventListener("click",(e)=>{
     document.querySelector('#food-result-list').innerText = '';
-    document.querySelector('#searchEx').value = ''
-    document.querySelector('#durationTime').value = ''
+    document.querySelector('#searchEx').value = '';
+    document.querySelector('#durationTime').value = '';
 })
 })
+document.querySelector('#searchEx').addEventListener("click",(e)=>{
+    document.querySelector('#searchEx').value = '';
+})
+document.querySelector('#durationTime').addEventListener("click",(e)=>{
+    document.querySelector('#durationTime').value = '';
+})
+document.querySelector('#food-search-textbox').addEventListener("click", (e)=>{
+    document.querySelector('#food-search-textbox').value = '';
+})
+
 //////////////////////////////////////////////////////////////
