@@ -68,11 +68,11 @@ async function foodFunc(food){
     // url = `https://trackapi.nutritionix.com/v2/search/instant?query=" ${food}&detailed=true`;
     let data = await fetchFrom(url, foodAuth);
     console.log(data);
-    /* for( foodItem in data.branded){
+    for( foodItem in data.branded){
         let newResult = document.createElement('li')
         newResult.innerText = foodItem.food_name
-        
-    } */ 
+        foodList.appendChild(newResult)
+    } 
 }
 
 
