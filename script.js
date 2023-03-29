@@ -5,7 +5,6 @@ let foodKey = KEY.FOOD;
 //DOM Variables
 let exerciseSearchOutput = document.getElementById("exercises")
 
-
 //fetch function
 async function fetchFrom(url,opt){
     try{
@@ -30,6 +29,7 @@ const quoteAuth = {
 		'X-RapidAPI-Host': 'motivational-quotes-quotable-api.p.rapidapi.com'
 	}
 };
+
 async function quoteFunc(){
     url = `https://motivational-quotes-quotable-api.p.rapidapi.com/motivational_quotes`;
     let data = await fetchFrom(url, quoteAuth);
@@ -76,7 +76,7 @@ const foodAuth = {
     }
 }
 
-let searchedFood = 'chicken'; // Based off of the user input from form.
+let searchedFood; // Based off of the user input from form.
 async function foodFunc(food){
     url = `https://trackapi.nutritionix.com/v2/search/instant?query=" ${food}&detailed=true`;
     let data = await fetchFrom(url, foodAuth);
@@ -107,7 +107,6 @@ document.querySelector('#food-form').addEventListener("submit", (e)=>{
     foodFunc(searchedFood);
     document.querySelector('#food-search-textbox').value = ''
 })
-
 
 
 //////////////////////////////////////////////////////////////
