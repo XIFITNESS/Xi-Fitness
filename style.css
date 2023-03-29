@@ -4,6 +4,8 @@ main{
     height: auto;
 }
 
+
+
 #app-name{
     font-family: Raleway;
     color:whitesmoke;
@@ -65,7 +67,7 @@ main{
     text-decoration: none;
 }
 
-.index-main{
+#index-main{
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -188,9 +190,27 @@ overflow: scroll;
     width: 100%;
 }
 
-#index-body,.index-main{
+.index-button{
+    text-decoration:none;
+    color: white;
+}
+
+#index-page{
     width: 100%;
     height: 100vh;
     display: flex;
     flex-direction: column;
+    /* overflow: hidden; */
+    /* position: fixed; */
+    /* inset: 0; */
+}
+
+#food-page{
+    display: flex;
+    height: 100vh;
+}
+
+#exercise-page{
+    display: flex;
+    height: 100vh;
 }
