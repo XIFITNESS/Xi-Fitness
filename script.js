@@ -49,11 +49,11 @@ async function exerciseFunc(exercise){
     exerciseSearchOutput.innerText = data[0]["name"];
     //console.log(data[0]["name"]);
 }
-document.querySelector("#search-form").addEventListener("submit", (e)=>{
-    e.preventDefault();
-    exercise = e.target[0].value;
-    exerciseFunc(exercise);
-})
+// document.querySelector("#search-form").addEventListener("submit", (e)=>{
+//     e.preventDefault();
+//     exercise = e.target[0].value;
+//     exerciseFunc(exercise);
+// })
 
 // Searched Food Fetch
 const foodAuth = {
@@ -66,14 +66,22 @@ const foodAuth = {
 
 let searchedFood = 'chicken'; // Based off of the user input from form.
 async function foodFunc(food){
-    // url = `https://trackapi.nutritionix.com/v2/search/instant?query=" ${food}&detailed=true`;
+    url = `https://trackapi.nutritionix.com/v2/search/instant?query=" ${food}&detailed=true`;
     let data = await fetchFrom(url, foodAuth);
     console.log(data);
-    for( foodItem in data.branded){
-        let newResult = document.createElement('li')
-        newResult.innerText = foodItem.food_name
-        foodList.appendChild(newResult)
-    } 
+    for (const foodItem of data.branded) {
+        const newLi = document.createElement('li');
+        const newImg = document.createElement('img');
+        const newLink = document.createElement('p');
+        newLink.innerText = foodItem.food_name;
+        newLink.classList = 'food-result-text'
+        newImg.src = foodItem.photo.thumb
+        newImg.classList = 'food-img'
+        newLi.classList = 'food-result'
+        newLi.append(newLink,newImg)
+        foodList.appendChild(newLi);
+        
+      } 
 }
 
 document.querySelector('#food-form').addEventListener("submit", (e)=>{
@@ -81,6 +89,7 @@ document.querySelector('#food-form').addEventListener("submit", (e)=>{
     console.log("does this work??")
     searchedFood = e.target[0].value;
     foodFunc(searchedFood);
+    document.querySelector('#food-search-textbox').innerText = ''
 })
 
 
@@ -90,5 +99,3 @@ document.querySelector('#food-form').addEventListener("submit", (e)=>{
 
 const foodList = document.querySelector('#food-result-list')
 const li = document.createElement('li')
-
-foodFunc(searchedFood);

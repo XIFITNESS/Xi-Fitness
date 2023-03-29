@@ -100,6 +100,11 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden ;
+}
+
+::-webkit-scrollbar{
+    display: none;
 }
 
 #food-search-area{
@@ -121,15 +126,36 @@ main{
 
 #food-result-list{
     width:90%;
-    height: auto;
-    padding:0px;
+    height: 80%;
+    margin-top:25px;
+    overflow:hidden; overflow-y:scroll;
+    border-radius: 10px;
+}
+
+.food-img{
+    max-width: 200px;
+    max-height: 200px;
+    border:#a5a5a5 5px solid;
+    border-radius: 25px;
+    padding: 10px;
+}
+
+.food-result-text{
+    margin-left:15%;
 }
 
 .food-result{
     background-color: whitesmoke;
     width: 100%;
-    list-style: inside;
-    color: white;
+    list-style: none;
+    color: black;
+    padding: 25px;
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid #767676;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .label{
