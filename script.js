@@ -7,7 +7,9 @@ let caloriesLeft = 0;
 
 //DOM Variables
 let exerciseSearchOutput = document.getElementById("exercises")
-const foodList = document.querySelector('#food-result-list')
+const foodList = document.querySelector('#food-result-list');
+let foodLinks = document.querySelectorAll(".food-link");
+let exerciseLinks = document.querySelectorAll(".exercise-link")
 
 
 //fetch function
@@ -144,7 +146,22 @@ document.querySelector('#food-form').addEventListener("submit", (e)=>{
     }
     searchedFood = e.target[0].value;
     foodFunc(searchedFood);
-    document.querySelector('#food-search-textbox').value = ''
+    //document.querySelector('#food-search-textbox').value = ''
 })
 
+
+foodLinks.forEach(link =>{
+    link.addEventListener("click",(e)=>{
+    exerciseSearchOutput.innerText = "";
+    document.querySelector('#food-search-textbox').value = ''
+})
+})
+
+exerciseLinks.forEach(link => {
+link.addEventListener("click",(e)=>{
+    document.querySelector('#food-result-list').innerText = '';
+    document.querySelector('#searchEx').value = ''
+    document.querySelector('#durationTime').value = ''
+})
+})
 //////////////////////////////////////////////////////////////
