@@ -10,7 +10,11 @@ let exerciseSearchOutput = document.getElementById("exercises")
 const foodList = document.querySelector('#food-result-list');
 let foodLinks = document.querySelectorAll(".food-link");
 let exerciseLinks = document.querySelectorAll(".exercise-link")
+const displayCalories = document.getElementsByClassName('calorie-count');
 
+for (d of displayCalories){
+    d.innerText = 0;
+}
 
 //fetch function
 async function fetchFrom(url,opt){
@@ -88,6 +92,9 @@ async function exerciseFunc(exercise,duration){
         cardDivBody.append(cardButton);
         cardButton.addEventListener("click",(e)=>{
             totalCalories = totalCalories - exercise["total_calories"];
+            for(d of displayCalories){
+                d.innerText = totalCalories;
+            }
             console.log(totalCalories);
         })
 
@@ -133,10 +140,12 @@ async function foodFunc(food){
         const cardButton = document.createElement("button");
         cardButton.innerText = "Select";
         cardButton.value = foodItem.nf_calories
-        // cardButton.value
         cardButton.addEventListener('click', (e) =>{
             totalCalories += Number(cardButton.value)
             document.querySelector('#food-result-list').innerText = ''
+            for(d of displayCalories){
+                d.innerText = totalCalories;
+            }
         })
         newImg.src = foodItem.photo.thumb;
         newImg.classList = 'food-img';
