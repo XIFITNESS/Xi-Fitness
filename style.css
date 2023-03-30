@@ -43,6 +43,10 @@ main{
     background-color: #F8E6DE;
 }
 
+#header-h4{
+    margin: 0px;
+}
+
 .welcome{
     font-family: Raleway;
     font-size: 170%;
@@ -59,7 +63,6 @@ main{
     background-color: #e7c5b67a;
     padding: 2%;
     border-radius: 25px;
-    /* margin: 30px 0px 20px 0px; */
 }
 
 .sidebar{
@@ -109,6 +112,58 @@ main{
 
 .intro-para h1 {
     padding-top: 2%;
+}
+
+#hw-form{
+    background-color: linen;
+    border: 5px solid #E7C5B6;
+    border-radius: 5px;
+    display: flex;
+    width: 60%;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+}
+
+#goal-prompt{
+    margin: 0px;
+}
+#hw-form-forms{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: flex-end;
+    padding-top: 3%;
+}
+
+#hw-form-buttons{
+    display: flex;
+    width: 50%;
+    justify-content: center;
+    padding-bottom: 3%;
+}
+
+.hw-button{
+    background-color: #EFD5CA;
+    color:#909090;
+    border-color: #909090;
+    padding:1% 2%;
+}
+
+#left-hw-button{
+    border-top-left-radius: 10px; 
+    border-bottom-left-radius: 10px;
+}
+
+#right-hw-button{
+    border-top-right-radius: 10px; 
+    border-bottom-right-radius: 10px;
+}
+
+.hw-form-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .button-section{
@@ -254,7 +309,7 @@ overflow: scroll;
 
 .index-button-outer{
     padding:1.5%;
-    border-radius: 25px;
+    border-radius: 15px;
 
 }
 
