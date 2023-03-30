@@ -42,7 +42,7 @@ async function quoteFunc(){
     quoteSect.innerText = data.quote;
     author.innerText = data.author;
 }
-// quoteFunc();
+quoteFunc();
 
 
 /////////////////////////// EXERCISE AREA \\\\\\\\\\\\\\\\\\\\\\\\\\\
