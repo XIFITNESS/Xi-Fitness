@@ -118,6 +118,8 @@ main{
 .index-button-outer{
     background-color: #BA4D3F;
     width: 20%;
+    text-align: center;
+    border: 1px solid #9f9f9f;
 }
 
 #non-side{
