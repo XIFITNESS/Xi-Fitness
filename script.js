@@ -26,7 +26,33 @@ async function fetchFrom(url,opt){
         return null;
     }
 }
+/////////////////////////// WEIGHT AREA \\\\\\\\\\\\\\\\\\\\\\\\\\\
+let calorieForm = document.querySelector(".hw-form-div");
+let weight, height, age, bmr = 0;
+let totalCal = 0;
 
+calorieForm.addEventListener("submit", (e)=>{
+    e.preventDefault();
+    height = Number(e.target[0].value[0] + "." + String(e.target[0].value).substring(1)) * 30.48;
+    weight = Number(e.target[4].value) * 0.45359237;
+    age = Number(e.target[1].value);
+
+    if(e.target[2].value === "on"){
+        //male
+        bmr = 66.47 + (13.75 * weight) + (5.003 * height) - (6.755 * age);
+    } else if (e.target[3].value === "on"){
+        //female
+        bmr = 655.1 + (9.563 * weight) + (1.850 * height) - (4.676 * age);
+    }
+    document.querySelector("#left-hw-button").addEventListener("click",(e)=>{
+        totalCal = bmr + 600;
+        console.log(totalCal)
+    })
+    document.querySelector("#right-hw-button").addEventListener("click",(e)=>{
+        totalCal = bmr-400;
+        console.log(totalCal)
+    })
+})
 /////////////////////////// QUOTE AREA \\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 // Quote Segment || Self explanatory
