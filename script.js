@@ -2,8 +2,8 @@ let quoteKey = KEY.QUOTES;
 let exerciseKey = KEY.EXCERCISE;
 let foodKey = KEY.FOOD;
 let totalCalories = 0;
-let calories = 1400;
-let caloriesLeft = 0;
+//let calories = totalCalories;
+//let caloriesLeft = 0;
 
 //DOM Variables
 let exerciseSearchOutput = document.getElementById("exercises")
@@ -11,10 +11,6 @@ const foodList = document.querySelector('#food-result-list');
 let foodLinks = document.querySelectorAll(".food-link");
 let exerciseLinks = document.querySelectorAll(".exercise-link")
 const displayCalories = document.getElementsByClassName('calorie-count');
-
-for (d of displayCalories){
-    d.innerText = 0;
-}
 
 //fetch function
 async function fetchFrom(url,opt){
@@ -36,7 +32,7 @@ calorieForm.addEventListener("submit", (e)=>{
     height = Number(e.target[0].value[0] + "." + String(e.target[0].value).substring(1)) * 30.48;
     weight = Number(e.target[4].value) * 0.45359237;
     age = Number(e.target[1].value);
-
+console.log(e)
     if(e.target[2].value === "on"){
         //male
         bmr = 66.47 + (13.75 * weight) + (5.003 * height) - (6.755 * age);
@@ -45,13 +41,17 @@ calorieForm.addEventListener("submit", (e)=>{
         bmr = 655.1 + (9.563 * weight) + (1.850 * height) - (4.676 * age);
     }
     document.querySelector("#left-hw-button").addEventListener("click",(e)=>{
-        totalCal = bmr + 600;
-        console.log(totalCal)
+        totalCalories = Math.ceil(bmr + 600);
+        console.log(totalCalories)
     })
     document.querySelector("#right-hw-button").addEventListener("click",(e)=>{
-        totalCal = bmr-400;
-        console.log(totalCal)
+        totalCalories = Math.ceil(bmr - 400);
+        console.log(totalCalories)
     })
+    for(d of displayCalories){
+        d.innerText = totalCalories;
+    }
+    
 })
 /////////////////////////// QUOTE AREA \\\\\\\\\\\\\\\\\\\\\\\\\\\
 
@@ -117,7 +117,7 @@ async function exerciseFunc(exercise,duration){
         cardDivBody.append(cardP2);
         cardDivBody.append(cardButton);
         cardButton.addEventListener("click",(e)=>{
-            totalCalories = totalCalories - exercise["total_calories"];
+            totalCalories = totalCalories + exercise["total_calories"];
             for(d of displayCalories){
                 d.innerText = totalCalories;
             }
@@ -167,7 +167,7 @@ async function foodFunc(food){
         cardButton.innerText = "Select";
         cardButton.value = foodItem.nf_calories
         cardButton.addEventListener('click', (e) =>{
-            totalCalories += Number(cardButton.value)
+            totalCalories -= Number(cardButton.value)
             document.querySelector('#food-result-list').innerText = ''
             for(d of displayCalories){
                 d.innerText = totalCalories;
