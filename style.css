@@ -4,8 +4,6 @@ main{
     height: auto;
 }
 
-
-
 #app-name{
     font-family: Raleway;
     color:whitesmoke;
@@ -120,8 +118,8 @@ main{
     border-radius: 5px;
     display: flex;
     width: 60%;
-    /* justify-content: center; */
-    align-items: center;
+    justify-content: center;
+    /* /* align-items: center; */
     flex-direction: column;
     margin: 2%;
 }
@@ -164,8 +162,8 @@ main{
 .hw-form-div{
     display: flex;
     flex-direction: column;
-    align-items: center;
-}
+    align-items: center; 
+} 
 
 .button-section{
     width: 100%;
