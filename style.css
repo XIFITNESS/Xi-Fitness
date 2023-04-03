@@ -61,6 +61,7 @@ main{
     background-color: #e7c5b67a;
     padding: 2%;
     border-radius: 25px;
+    text-align: center;
 }
 
 .sidebar{
@@ -122,9 +123,16 @@ main{
     /* /* align-items: center; */
     flex-direction: column;
     margin: 2%;
+    padding: 7%;
 }
 #first-inputs{
 display: flex;
+}
+/* ::placeholder {
+    text-align: center; 
+} */
+input{
+    text-align:center;
 }
 #gender{
 display: flex;
@@ -219,9 +227,6 @@ display: flex;
     align-items: center;
     overflow: scroll;
 }
-
-
-
 ::-webkit-scrollbar{
     display: none;
 }
