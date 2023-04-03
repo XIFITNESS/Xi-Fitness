@@ -80,6 +80,12 @@ main{
     text-align: center;
 }
 
+.sidebar{
+    background-color: #BA4D3F;
+    color:white;
+    height: 100vh;
+}
+
 .side-link{
     color: linen;
     text-decoration: none;
@@ -205,6 +211,16 @@ input{
 }
 
 #food-area{
+    background-color: linen;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden ;
+}
+
+#vid-area{
     background-color: linen;
     height: 100%;
     width: 100%;
@@ -350,4 +366,31 @@ overflow: scroll;
 #exercise-page{
     display: flex;
     height: 100vh;
+}
+
+
+#meditation{
+    display: flex;
+}
+
+#vid-area{
+    background-color: linen;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    /* justify-content: center; */
+    align-items: flex-start;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+}
+
+.vid-result{
+    width: 20%;
+    /* padding:2%; */
+    margin: 3%;
+    /* overflow: hidden; */
+}
+
+.thumbnail{
+    width: 100%;
 }

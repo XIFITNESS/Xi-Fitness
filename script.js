@@ -169,20 +169,22 @@ async function foodFunc(food){
         const cardButton = document.createElement("button");
         cardButton.innerText = "Select";
         cardButton.value = foodItem.nf_calories
+        newImg.src = foodItem.photo.thumb;
+        newImg.classList = 'food-img';
+        newLi.classList = 'food-result';
         cardButton.addEventListener('click', (e) =>{
             totalCalories -= Number(cardButton.value)
             for(d of displayCalories){
                 d.innerText = totalCalories;
+                food_list[foodItem.food_name] = newImg;
                 window.alert(`${foodItem.food_name} added. to calorie count`)
             }
         })
-        newImg.src = foodItem.photo.thumb;
-        newImg.classList = 'food-img';
-        newLi.classList = 'food-result';
+
         newLi.append(newLink,cardButton,newImg);
         foodList.appendChild(newLi);
-        
     } 
+    console.log(food_list)
 }
 
 document.querySelector('#food-form').addEventListener("submit", (e)=>{
@@ -225,3 +227,56 @@ document.querySelector('#food-search-textbox').addEventListener("click", (e)=>{
 })
 
 //////////////////////////////////////////////////////////////
+
+
+const ytAuth = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': 'b7033af962msh5e6aefcc11f4288p181037jsn8d2e49ec14db',
+		'X-RapidAPI-Host': 'youtube-search-results.p.rapidapi.com'
+	}
+};
+
+let vidArray
+
+const vidArea = document.getElementById('vid-area')
+
+async function getYoutubeVideos() {
+    try {
+      const response = await fetch('https://youtube-search-results.p.rapidapi.com/youtube-search/?q=fitness+meditation', ytAuth);
+      const data = await response.json();
+        vidArray = data.items;
+      console.log(vidArray);
+    } catch (err) {
+      console.error(err);
+    }
+
+    for(video of vidArray){
+        const newVid = document.createElement('a');
+        const newImg = document.createElement('img');
+        const newTitle = document.createElement('p');
+        newTitle.innerText = video.title;
+        newVid.href = video.url
+        // newTitle.classList = 'food-result-text';
+        const cardButton = document.createElement("button");
+        // cardButton.innerText = "Select";
+        // cardButton.value = foodItem.nf_calories
+        newImg.src = video.bestThumbnail.url;
+        newImg.classList = 'thumbnail';
+        newVid.classList = 'vid-result';
+        // cardButton.addEventListener('click', (e) =>{
+        //     totalCalories -= Number(cardButton.value)
+        //     for(d of displayCalories){
+        //         d.innerText = totalCalories;
+        //         food_list[foodItem.food_name] = newImg;
+        //     }
+        // })
+
+        newVid.append(newImg, newTitle);
+        console.log(newVid)
+        vidArea.appendChild(newVid);
+    }
+
+}
+
+getYoutubeVideos()
