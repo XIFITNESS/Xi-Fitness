@@ -177,10 +177,29 @@ async function foodFunc(food){
             for(d of displayCalories){
                 d.innerText = totalCalories;
                 food_list[foodItem.food_name] = newImg;
-                window.alert(`${foodItem.food_name} added. to calorie count`)
             }
         })
+        cardButton.addEventListener('click', function() {
 
+            const alert = document.querySelector('.alert');
+            alert.classList.add('show');
+            alert.classList.remove('hide');
+            alert.classList.add('showAlert');
+        
+            setTimeout(function() {
+              alert.classList.remove('show');
+              alert.classList.add('hide');
+            }, 2000);
+          });
+        
+
+          const closeButton = document.querySelector('.close-btn');
+          closeButton.addEventListener('click', function() {
+
+            const alert = document.querySelector('.alert');
+            alert.classList.remove('show');
+            alert.classList.add('hide');
+          });
         newLi.append(newLink,cardButton,newImg);
         foodList.appendChild(newLi);
     } 
@@ -195,7 +214,7 @@ document.querySelector('#food-form').addEventListener("submit", (e)=>{
     }
     searchedFood = e.target[0].value;
     foodFunc(searchedFood);
-    //document.querySelector('#food-search-textbox').value = ''
+
 })
 
 
@@ -215,15 +234,15 @@ link.addEventListener("click",(e)=>{
 })
 document.querySelector('#searchEx').addEventListener("click",(e)=>{
     document.querySelector('#searchEx').value = '';
-    //document.querySelector('#searchEx').placeholder = '';
+
 })
 document.querySelector('#durationTime').addEventListener("click",(e)=>{
     document.querySelector('#durationTime').value = '';
-    //document.querySelector('#durationTime').placeholder = '';
+
 })
 document.querySelector('#food-search-textbox').addEventListener("click", (e)=>{
     document.querySelector('#food-search-textbox').value = '';
-    //document.querySelector('#food-search-textbox').placeholder = '';
+
 })
 
 //////////////////////////////////////////////////////////////
