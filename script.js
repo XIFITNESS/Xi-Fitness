@@ -53,7 +53,7 @@ calorieForm.addEventListener("submit", (e)=>{
     for(d of displayCalories){
         d.innerText = totalCalories;
     }
-    
+    calorieForm.innerText = `Your Calorie Goal is ${totalCalories}`;
 })
 /////////////////////////// QUOTE AREA \\\\\\\\\\\\\\\\\\\\\\\\\\\
 
