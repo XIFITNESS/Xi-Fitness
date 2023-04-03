@@ -170,9 +170,9 @@ async function foodFunc(food){
         cardButton.value = foodItem.nf_calories
         cardButton.addEventListener('click', (e) =>{
             totalCalories -= Number(cardButton.value)
-            document.querySelector('#food-result-list').innerText = ''
             for(d of displayCalories){
                 d.innerText = totalCalories;
+                window.alert(`${foodItem.food_name} added. to calorie count`)
             }
         })
         newImg.src = foodItem.photo.thumb;
