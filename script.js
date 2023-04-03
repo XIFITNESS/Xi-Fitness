@@ -144,6 +144,7 @@ document.querySelector("#search-form").addEventListener("submit", (e)=>{
 
 /////////////////////////// FOOD AREA \\\\\\\\\\\\\\\\\\\\\\\\\\\
 
+let food_list = {}
 
 // Searched Food Fetch
 const foodAuth = {

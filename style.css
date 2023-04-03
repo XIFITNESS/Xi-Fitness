@@ -64,12 +64,6 @@ main{
     text-align: center;
 }
 
-.sidebar{
-    background-color: #BA4D3F;
-    color:white;
-    height: 100vh;
-}
-
 #sidebar-selections{
     width:auto;
 }
@@ -123,20 +117,31 @@ main{
     /* /* align-items: center; */
     flex-direction: column;
     margin: 2%;
-    padding: 7%;
+    padding: 2%;
 }
-#first-inputs{
-display: flex;
-}
+
 /* ::placeholder {
     text-align: center; 
 } */
+
 input{
     text-align:center;
 }
-#gender{
-display: flex;
+
+#first-inputs{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding-bottom: 2%;
 }
+
+#gender{
+    display: flex;
+    width: 50%;
+    justify-content: space-around;
+    
+}
+
 #goal-prompt{
     margin: 0px;
 }
@@ -152,14 +157,15 @@ display: flex;
     display: flex;
     width: 50%;
     justify-content: center;
-    padding-bottom: 3%;
+    /* padding-bottom: 1%; */
 }
 
 .hw-button{
     background-color: #EFD5CA;
     color:#909090;
     border-color: #909090;
-    padding:1% 2%;
+    padding:3% 8%;
+    margin-top: 2%;
 }
 
 #left-hw-button{
@@ -206,6 +212,10 @@ display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden ;
+}
+
+.cal{
+    color:linen
 }
 
 #exercise-area{
