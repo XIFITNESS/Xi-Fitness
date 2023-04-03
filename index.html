@@ -25,7 +25,6 @@
       <header>
 
           <div class="title-header"> <h4 style="margin: 0px;">XIFITNESS</h4></div> 
-     
       </header>
 
     <main id="index-main">
@@ -42,18 +41,24 @@
             <div id="hw-form">
               <div id="hw-form-forms">
                 <form class="hw-form-div" action="input">
-                  <label for="height">Height</label>
-                  <input id="hieght-input" type="number" name="height" placeholder="height in inches">
-                  <label for="age">Age</label>
-                  <input id="age-input" type="number" name="age">
-                  <label for="weight">Weight</label>
+                  <h2>ENTER YOUR INFORMATION</h2>
+                  <div id="first-inputs">
+                  <!-- <label for="height">Height</label> -->
+                  <input id="hieght-input" type="number" name="height" placeholder="height in feet" required>
+                  <!-- <label for="age">Age</label> -->
+                  <input id="age-input" type="number" name="age" placeholder="age in years" required>
+                  </div>
+                  <!-- <label for="weight">Weight</label> -->
+                  <input id="weight-input"type="number" name="weight" placeholder="weight in pounds" required>
+                  <!-- <p id="gender-prompt">Gender?</p> -->
+                  <div id="gender">
                   <label for="genderM">Male</label><br>
-                  <input id= "genderM" type="radio" name="gender">
+                  <input id= "genderM" type="radio" name="gender" required>
                   <label for="genderF">Female</label><br>
-                  <input id= "genderF" type="radio" name="gender">
-                  <input id="weight-input"type="number" name="weight">
-                  <p id="goal-prompt">Goal?</p>
-                 <div id="hw-form-buttons">
+                  <input id= "genderF" type="radio" name="gender" required>
+                  </div>
+                  <!-- <p id="goal-prompt">Goal?</p> -->
+                  <div id="hw-form-buttons">
                   <button type = "submit" class="hw-button" id="left-hw-button">Gain</button>
                   <button type="submit" class="hw-button" id="right-hw-button">Lose</button>
                   </div>

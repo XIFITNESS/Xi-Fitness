@@ -30,9 +30,8 @@ let totalCal = 0;
 calorieForm.addEventListener("submit", (e)=>{
     e.preventDefault();
     height = Number(e.target[0].value[0] + "." + String(e.target[0].value).substring(1)) * 30.48;
-    weight = Number(e.target[4].value) * 0.45359237;
+    weight = Number(e.target[2].value) * 0.45359237; //4
     age = Number(e.target[1].value);
-    console.log(e.submitter.id);
     if(e.target[2].value === "on"){
         //male
         bmr = 66.47 + (13.75 * weight) + (5.003 * height) - (6.755 * age);
@@ -43,12 +42,13 @@ calorieForm.addEventListener("submit", (e)=>{
     // document.querySelector("#left-hw-button").addEventListener("click",(e)=>{
     if(e.submitter.id === "left-hw-button"){
         totalCalories = Math.ceil(bmr + 600);
-        console.log(totalCalories)
     }
     // document.querySelector("#right-hw-button").addEventListener("click",(e)=>{
     if(e.submitter.id === "right-hw-button"){    
         totalCalories = Math.ceil(bmr - 400);
-        console.log(totalCalories)
+    }
+    if(totalCalories < 1200){
+        totalCalories = 1200;
     }
     for(d of displayCalories){
         d.innerText = totalCalories;
